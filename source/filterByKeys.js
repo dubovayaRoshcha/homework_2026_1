@@ -10,13 +10,10 @@
  * filterObjectByKeys({a: 1, b: 2, c: 3}, ['a', 'c'])
  * вернёт {a: 1, c: 3}
  */
-function filterObjectByKeys(obj, keys) {
-    let result = {};
-    for (let key of keys) {
-        if (key in obj) {
-            result[key] = obj[key];
-        }
-    }
+const filterObjectByKeys = (obj, keys) => {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key]) => keys.includes(key))
+  );
+};
 
-    return result;
-}
+
